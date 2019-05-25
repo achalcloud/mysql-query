@@ -1,0 +1,42 @@
+ls /var/lib/mysql     -----> here databse made
+
+To create a new database, run the command: 
+MariaDB [(none)]> CREATE DATABASE inventory; 
+MariaDB [(none)]> USE inventory; 
+
+To list attributes (or the column names) from a table, use: 
+MariaDB [(mysql)]> DESCRIBE servers;
+
+MariaDB [(inventory)]> INSERT INTO product(name,price,stock,id_category,id_manufacturer) VALUES ('SDSSDP-1286-625 2.5',82.04,30, 3,1); 
+
+Delete a record with the delete statement
+MariaDB [(inventory))> DELETE FROM product WHERE id = 1 ;
+
+To update a record, use an update statement:
+MariaDB [(inventory))> UPDATE product SET price=89.90, stock=60 WHEREE id = 5; 
+
+To read data records from the database, use the select statement: 
+MariaDB [(inventory))> SELECT name,price,stock FROM product; 
+
+create a new user
+MariaDB [(none)]> CREATE USER mobius@localhost IDENTIFIED BY 'redhat'; 
+
+This user account can only connect from localhost, with the password redhat, and has no privileges. Passwords are encrypted in the user table:
+MariaDB [mysql]> SELECT host, user, password FROM user WHERE user = 'mobius'; 
+
+If you want to give access to a particular user on a particular DB with particular permissions;
+In my case i want to give access of mysql database to user achal with this permissions GRANT SELECT, UPDATE, DELETE, INSERT then follow the bellow steps
+
+mysql -u root -p
+use mysql;
+GRANT SELECT, UPDATE, DELETE, INSERT on mysql.* to achal@localhost; 
+
+
+MariaDB [(none)]> REVOKE SELECT, UPDATE, DELETE, INSERT on mysql.* to achal@localhost;
+REVOKE ALL PRIVILEGES, GRANT OPTION FROM achal@localhost;
+
+check privileges  of a user by bellow query;
+SHOW GRANTS FOR achal@localhost;
+
+After granting or revoking a privilege, reload all privileges from the privileges tables in the mysql database. 
+flush privileges;

@@ -44,6 +44,16 @@ flush privileges;
 DELETE a user by bellow query
 drop user achal@localhost;
 
+DELETE FROM category WHERE name LIKE 'Memory'; 
+ 
+ 
+ A logical backup can be done with the mysqldump command
+ mysqldump -u root -p inventory > /backup/inventory.dump
+ 
+ Restoring a backup 
+  mysql -u root -p inventory < /backup/mariadb.dump
+
+
 References 
 mysql(1) man page 
 MariaDB Knowledge Base: User Account Management https://mariadb.com/kb/en/user-account-management/ 

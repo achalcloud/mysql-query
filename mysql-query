@@ -52,6 +52,8 @@ DELETE FROM category WHERE name LIKE 'Memory';
  
  Restoring a backup 
   mysql -u root -p inventory < /backup/mariadb.dump
+  
+  SET PASSWORD FOR 'achal'@'localhost' = PASSWORD('p@ssw0rd');
 
 
 References 

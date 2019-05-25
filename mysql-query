@@ -40,3 +40,12 @@ SHOW GRANTS FOR achal@localhost;
 
 After granting or revoking a privilege, reload all privileges from the privileges tables in the mysql database. 
 flush privileges;
+
+DELETE a user by bellow query
+drop user achal@localhost;
+
+References 
+mysql(1) man page 
+MariaDB Knowledge Base: User Account Management https://mariadb.com/kb/en/user-account-management/ 
+Maria DB Knowledge Base: Account Management SQL Commands: REVOKE https://mariadb.com/kb/en/revoke/ 
+MariaDB Knowledge Base: Account Management SQL Commands: GRANT, "Database Privileges" https://ma 1-iadb.com/kb/en/g rant/:J:tdata base-priv i I eges

@@ -54,9 +54,18 @@ DELETE FROM category WHERE name LIKE 'Memory';
   mysql -u root -p inventory < /backup/mariadb.dump
   
   SET PASSWORD FOR 'achal'@'localhost' = PASSWORD('p@ssw0rd');
-  
+  =================================================================
   MySQL(RDS) output query to file(where e is for query
   mysql -h lookchup-rds.cksnrn8rvg6w.ap-south-1.rds.amazonaws.com -u lookchupdbadmin -p -e "SHOW FULL PROCESSLIST" >fullprocess_list.txt
+  
+  ============================
+  Use the SQL query construct INTO OUTFILE 'filename' to write the results to file from inside the MySQL command line interface:
+
+% mysql -uuser -ppass database
+mysql> SELECT id, name INTO OUTFILE '/tmp/smiths.txt' FROM person WHERE name like '%smith%';
+Query OK, 10 rows affected (0.01 sec)
+==============================
+
 
 
 References 

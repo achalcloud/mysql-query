@@ -54,6 +54,9 @@ DELETE FROM category WHERE name LIKE 'Memory';
   mysql -u root -p inventory < /backup/mariadb.dump
   
   SET PASSWORD FOR 'achal'@'localhost' = PASSWORD('p@ssw0rd');
+  
+  MySQL(RDS) output query to file(where e is for query
+  mysql -h lookchup-rds.cksnrn8rvg6w.ap-south-1.rds.amazonaws.com -u lookchupdbadmin -p -e "SHOW FULL PROCESSLIST" >fullprocess_list.txt
 
 
 References 

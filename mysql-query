@@ -64,7 +64,13 @@ DELETE FROM category WHERE name LIKE 'Memory';
 % mysql -uuser -ppass database
 mysql> SELECT id, name INTO OUTFILE '/tmp/smiths.txt' FROM person WHERE name like '%smith%';
 Query OK, 10 rows affected (0.01 sec)
-==============================
+===========================================MYSQL-DUMP-RDS========================================================
+
+mysqldump -h ppfas-new.cd9w0gyotnjw.ap-south-1.rds.amazonaws.com -u username -p dbname(archieso_order) > /var/www/html/amc/archieso_order.bak
+
+mysql[(none)]> use archiesdb_order;
+============================================Restore abhove taken DB=========================================
+mysql[(archiesdb_order)]> source /var/www/html/amc/archieso_order.bak
 
 
 

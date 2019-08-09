@@ -81,3 +81,77 @@ Maria DB Knowledge Base: Account Management SQL Commands: REVOKE https://mariadb
 MariaDB Knowledge Base: Account Management SQL Commands: GRANT, "Database Privileges" https://ma 1-iadb.com/kb/en/g rant/:J:tdata base-priv i I eges
 
 http://www.mysqltutorial.org/mysql-administration.aspx
+
+************************************************************************************************************************
+CREATE USER 'traveller'@'%' IDENTIFIED BY 'britUd6Cha5rum0r';
+
+
+ GRANT SELECT, TRIGGER ON *.* TO 'new_master_user'@'%' WITH GRANT OPTION;
+ 
+ GRANT SELECT ON millionhere.* TO 'traveller'@'%';
+ 
+  SHOW GRANTS FOR 'traveller';
+  
+  
+  Database - millionhere
+  DB USER Name: traveller
+  Password:   britUd6Cha5rum0r
+  
+  
+  CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'password';
+
+mysql> GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, RELOAD, PROCESS, REFERENCES, INDEX, ALTER, SHOW DATABASES, CREATE TEMPORARY TABLES, LOCK TABLES, EXECUTE, REPLICATION SLAVE, REPLICATION CLIENT, CREATE VIEW, SHOW VIEW, CREATE ROUTINE, ALTER ROUTINE, CREATE USER, EVENT, TRIGGER ON *.* TO 'new_master_user'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
+
+mysql -u henkeladmin henkeldb.crhefqqdpagm.ap-south-1.rds.amazonaws.com henkeldba -p
+
+
+henkeldb.crhefqqdpagm.ap-south-1.rds.amazonaws.com
+
+
+
+mysql -h henkeldb.crhefqqdpagm.ap-south-1.rds.amazonaws.com -u henkeladmin -p
+
+
+mysqldump -u henkeladmin -h henkeldb.crhefqqdpagm.ap-south-1.rds.amazonaws.com henkelstagedb -p > henkelstagedb.bak.sql
+
+
+mysql -u henkeladmin -h henkeldb.crhefqqdpagm.ap-south-1.rds.amazonaws.com henkelstage_newdb -p < /opt/henkelstagedb.bak.sql
+
+
+
+restore a database
+
+source /henkelstagedb.bak.sql
+
+cd C:\mysql\bin
+mysql -u root -p
+mysql> source c:\myfile.sql
+
+
+https://www.rosehosting.com/blog/mysql-show-users/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+SELECT 
+     table_schema as `OAnLcIeUAtrunk_New`, 
+     table_name AS `*`, 
+     round(((data_length + index_length) / 1024 / 1024), 2) `Size in MB` 
+FROM information_schema.TABLES 
+ORDER BY (data_length + index_length) DESC;
+
+
+/////////////////////////////////////////////////////////////////
+
+
+IMP LINKS
+
+https://www.tldp.org/HOWTO/html_single/LVM-HOWTO/#extendlv
+
+
+
+
+
+
+

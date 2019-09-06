@@ -44,6 +44,9 @@ How to dump particular table from a postgresql databse.
 ---
 pg_dump -U User_name -d database_name -t public.my_table > f:\my_table.sql
 ***********************************************************************************************************
+list all table of a particular databse
+\dt
+************************************************************************************************************
 
 
 

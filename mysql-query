@@ -161,6 +161,10 @@ ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS "Size in (MB)"
 FROM information_schema.TABLES 
 GROUP BY table_schema;
 **************************************************************************************************
+How to dump particular table of a databe in mysql.
+---
+mysqldump -u username -ppassword database_name table_name > single_table_dump.sql
+*****************************************************************************************************
 
 
 

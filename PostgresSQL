@@ -1,1 +1,12 @@
 
+How to find database size?
+
+SELECT pg_size_pretty( pg_database_size('dbname') );
+
+or,
+
+\l+ DB_name
+
+---------------------------------------------------------
+
+

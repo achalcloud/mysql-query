@@ -39,6 +39,11 @@ AND nspname !~ '^pg_toast'
 ORDER BY
     pg_total_relation_size (C .oid) DESC
 LIMIT 10;
+**********************************************************************************************************
+How to dump particular table from a postgresql databse.
+---
+pg_dump -U User_name -d database_name -t public.my_table > f:\my_table.sql
+***********************************************************************************************************
 
 
 

@@ -8,5 +8,38 @@ or,
 \l+ DB_name
 
 ---------------------------------------------------------
+How to list all table size in particular database in postgresql
+---
+SELECT table_name AS "Table",
+ROUND(((data_length + index_length) / 1024 / 1024), 2) AS "Size (MB)"
+FROM information_schema.TABLES
+WHERE table_schema = "database_name";
+**************************************************************************************************
+\l   ---> show database in postgresql
+\c DB_name   ---> To connect particular databse
+\q  ---> To exit from particular databse
+*****************************************************************************************************
+To list all table size of particular database in postgresql
+---
+SELECT
+    relname AS "relation",
+    pg_size_pretty (
+        pg_total_relation_size (C .oid)
+    ) AS "total_size"
+FROM
+    pg_class C
+LEFT JOIN pg_namespace N ON (N.oid = C .relnamespace)
+WHERE
+    nspname NOT IN (
+        'pg_catalog',
+        'information_schema'
+    )
+AND C .relkind <> 'i'
+AND nspname !~ '^pg_toast'
+ORDER BY
+    pg_total_relation_size (C .oid) DESC
+LIMIT 10;
+
+
 
 
